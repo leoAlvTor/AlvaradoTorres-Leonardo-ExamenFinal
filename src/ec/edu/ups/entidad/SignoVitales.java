@@ -92,5 +92,16 @@ public class SignoVitales {
         this.citaMedica = citaMedica;
     }
 
-
+    @Override
+    public String toString() {
+        return "SignoVitales{" +
+                "codigo=" + codigo +
+                ", descripcion='" + descripcion + '\'' +
+                ", presion='" + presion + '\'' +
+                ", frecuenciaCardiaca=" + frecuenciaCardiaca +
+                ", frecuenciaRespiratoria='" + frecuenciaRespiratoria + '\'' +
+                ", temperatura=" + temperatura +
+                ", citaMedica=" + citaMedica +
+                '}';
+    }
 }

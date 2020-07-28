@@ -27,14 +27,14 @@ public class Paciente {
     public Paciente(){}
 
     public Paciente(String cedula, String nombre, String apellido, String telefono,
-                    String direccion, String correo, SignoVitales signosVitales) {
+                    String direccion, String correo, CitaMedica citaMedica) {
         this.cedula = cedula;
         this.nombre = nombre;
         this.apellido = apellido;
         this.telefono = telefono;
         this.direccion = direccion;
         this.correo = correo;
-        this.signosVitales = signosVitales;
+        this.citaMedica = citaMedica;
     }
 
     public String getCedula() {
@@ -85,12 +85,13 @@ public class Paciente {
         this.correo = correo;
     }
 
-    public SignoVitales getSignosVitales() {
-        return signosVitales;
+
+    public CitaMedica getCitaMedica() {
+        return citaMedica;
     }
 
-    public void setSignosVitales(SignoVitales signosVitales) {
-        this.signosVitales = signosVitales;
+    public void setCitaMedica(CitaMedica citaMedica) {
+        this.citaMedica = citaMedica;
     }
 
     @Override
@@ -102,7 +103,7 @@ public class Paciente {
                 ", telefono='" + telefono + '\'' +
                 ", direccion='" + direccion + '\'' +
                 ", correo='" + correo + '\'' +
-                ", signosVitales=" + signosVitales +
+                ", citaMedica=" + citaMedica +
                 '}';
     }
 
