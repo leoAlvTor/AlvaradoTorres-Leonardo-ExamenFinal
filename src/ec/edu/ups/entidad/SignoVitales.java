@@ -20,7 +20,7 @@ public class SignoVitales {
 
     private double temperatura;
 
-    @OneToOne(mappedBy = "signoVitales")
+    @OneToOne
     private CitaMedica citaMedica;
 
     public SignoVitales(){}

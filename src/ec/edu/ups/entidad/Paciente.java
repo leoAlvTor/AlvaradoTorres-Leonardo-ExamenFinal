@@ -1,8 +1,7 @@
 package ec.edu.ups.entidad;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -21,13 +20,13 @@ public class Paciente {
 
     private String correo;
 
-    @OneToMany(mappedBy = "paciente")
-    private CitaMedica citaMedica;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "paciente")
+    private List<CitaMedica> citaMedica;
 
     public Paciente(){}
 
     public Paciente(String cedula, String nombre, String apellido, String telefono,
-                    String direccion, String correo, CitaMedica citaMedica) {
+                    String direccion, String correo, List<CitaMedica> citaMedica) {
         this.cedula = cedula;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -86,12 +85,16 @@ public class Paciente {
     }
 
 
-    public CitaMedica getCitaMedica() {
+    public List<CitaMedica> getCitaMedica() {
         return citaMedica;
     }
 
-    public void setCitaMedica(CitaMedica citaMedica) {
+    public void setCitaMedica(List<CitaMedica> citaMedica) {
         this.citaMedica = citaMedica;
+    }
+
+    public void addCita(CitaMedica citaMedica){
+        this.citaMedica.add(citaMedica);
     }
 
     @Override

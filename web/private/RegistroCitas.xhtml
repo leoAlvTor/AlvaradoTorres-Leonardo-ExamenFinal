@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:body>
+
+    <h:form>
+        <h:outputLabel value="Ingrese la cedula del paciente"/><br/>
+        <h:inputText value="#{citaMedicaEJB.cedula}"/>
+        <h:commandButton value="Buscar Cliente" action="#{citaMedicaEJB.buscarPaciente}">
+            <f:ajax render="nombre_paciente correo_paciente telefono_paciente direccion_paciente"/>
+        </h:commandButton><br/>
+
+        <h:outputLabel id="nombre_paciente" value="Nombre Del Paciente: #{citaMedicaEJB.nombre_paciente}"/><br/>
+        <h:outputLabel id="correo_paciente" value="Correo Del Paciente: #{citaMedicaEJB.correo_paciente}"/><br/>
+        <h:outputLabel id="telefono_paciente" value="Telefono Del Paciente: #{citaMedicaEJB.telefono_paciente}"/><br/>
+        <h:outputLabel id="direccion_paciente" value="Direccion Del Paciente: #{citaMedicaEJB.direccion_paciente}"/><br/>
+
+        <br/>
+        <h:outputLabel value="Ingrese la fecha de la cita: "/><br/>
+        <h:inputText value="#{citaMedicaEJB.fecha}"/><br/>
+
+        <h:outputLabel value="Ingrese la hora de la cita: "/><br/>
+        <h:inputText value="#{citaMedicaEJB.hora}"/><br/>
+
+        <h:outputLabel value="Ingrese la mitad correspondiente de la hora (1  /  2)"/><br/>
+        <h:inputText value="#{citaMedicaEJB.fraccion_hora}"/><br/>
+
+
+        <h:commandButton value="Crear Cita Medica" action="#{citaMedicaEJB.crearCita}">
+            <f:ajax render="mensaje"/>
+        </h:commandButton><br/>
+
+        <h:outputLabel id="mensaje" value="Mensaje: #{citaMedicaEJB.mensajes}"/>
+
+    </h:form>
+
+</h:body>
+
+</html>

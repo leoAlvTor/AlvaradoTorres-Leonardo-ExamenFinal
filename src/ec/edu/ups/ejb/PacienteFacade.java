@@ -2,12 +2,14 @@ package ec.edu.ups.ejb;
 
 import ec.edu.ups.entidad.Paciente;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+@Stateless
 public class PacienteFacade extends AbstractFacade<Paciente>{
 
-    @PersistenceContext(unitName = "examen")
+    @PersistenceContext(unitName = "ExamenFinal")
     private EntityManager entityManager;
 
     public PacienteFacade(){
@@ -16,6 +18,6 @@ public class PacienteFacade extends AbstractFacade<Paciente>{
 
     @Override
     protected EntityManager getEntityManager() {
-        return null;
+        return entityManager;
     }
 }
