@@ -73,12 +73,19 @@ public class BuscarCitasEJB implements Serializable {
     }
 
     public void buscarCita(){
+
+
         cita = citaMedicaFacade.find(Integer.parseInt(cita_id));
         paciente = pacienteFacade.find(paciente_id);
 
-        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
-        format.setCalendar(cita.getFechaCita());
-        fecha = format.format(cita.getFechaCita().getTime());
+        if(!cita.getPaciente().getCedula().equals(paciente_id)){
+            cita = new CitaMedica();
+            paciente = new Paciente();
+        }else {
+            SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+            format.setCalendar(cita.getFechaCita());
+            fecha = format.format(cita.getFechaCita().getTime());
+        }
     }
 
 }
